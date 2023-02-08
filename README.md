@@ -44,10 +44,7 @@ php artisan vendor:publish --tag=":package_slug-views"
 
 ## Usage
 
-```php
-$skeleton = new PreemStudio\Skeleton();
-echo $skeleton->echoPhrase('Hello, PreemStudio!');
-```
+Check our [test suite](/tests) for usage examples.
 
 ## Testing
 
