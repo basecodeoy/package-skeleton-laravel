@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PreemStudio\Skeleton\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+final class SkeletonCommand extends Command
 {
     public $signature = 'skeleton';
 

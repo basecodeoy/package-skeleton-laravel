@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PreemStudio\Skeleton\Facades;
 
 use Illuminate\Support\Facades\Facade;
@@ -7,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \PreemStudio\Skeleton\Skeleton
  */
-class Skeleton extends Facade
+final class Skeleton extends Facade
 {
     protected static function getFacadeAccessor()
     {

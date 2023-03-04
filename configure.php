@@ -71,38 +71,38 @@ function determineSeparator(string $path): string
 }
 
 $currentDirectory = getcwd();
-$folderName = basename($currentDirectory);
+$folderName       = basename($currentDirectory);
 
-$packageName = ask('Package name', $folderName);
-$packageSlug = slugify($packageName);
+$packageName              = ask('Package name', $folderName);
+$packageSlug              = slugify($packageName);
 $packageSlugWithoutPrefix = remove_prefix('laravel-', $packageSlug);
 
-$className = title_case($packageName);
-$className = ask('Class name', $className);
+$className   = title_case($packageName);
+$className   = ask('Class name', $className);
 $description = ask('Package description', "This is my package {$packageSlug}");
 
 $files = explode(PHP_EOL, run('grep -E -r -l -i ":author|:vendor|:package|VendorName|skeleton|migration_table_name|vendor_name|vendor_slug|author@domain.com" --exclude-dir=vendor ./* ./.github/* | grep -v '.basename(__FILE__)));
 
 foreach ($files as $file) {
     replace_in_file($file, [
-        ':package_description' => $description,
-        ':package_name' => $packageName,
+        ':package_description'         => $description,
+        ':package_name'                => $packageName,
         ':package_slug_without_prefix' => $packageSlugWithoutPrefix,
-        ':package_slug' => $packageSlug,
-        'migration_table_name' => title_snake($packageSlug),
-        'Skeleton' => $className,
-        'skeleton' => $packageSlug,
+        ':package_slug'                => $packageSlug,
+        'migration_table_name'         => title_snake($packageSlug),
+        'Skeleton'                     => $className,
+        'skeleton'                     => $packageSlug,
     ]);
 
     match (true) {
-        str_contains($file, determineSeparator('src/Skeleton.php')) => rename($file, determineSeparator('./src/'.$className.'.php')),
-        str_contains($file, determineSeparator('src/SkeletonServiceProvider.php')) => rename($file, determineSeparator('./src/'.$className.'ServiceProvider.php')),
-        str_contains($file, determineSeparator('src/Facades/Skeleton.php')) => rename($file, determineSeparator('./src/Facades/'.$className.'.php')),
-        str_contains($file, determineSeparator('src/Commands/SkeletonCommand.php')) => rename($file, determineSeparator('./src/Commands/'.$className.'Command.php')),
+        str_contains($file, determineSeparator('src/Skeleton.php'))                                   => rename($file, determineSeparator('./src/'.$className.'.php')),
+        str_contains($file, determineSeparator('src/SkeletonServiceProvider.php'))                    => rename($file, determineSeparator('./src/'.$className.'ServiceProvider.php')),
+        str_contains($file, determineSeparator('src/Facades/Skeleton.php'))                           => rename($file, determineSeparator('./src/Facades/'.$className.'.php')),
+        str_contains($file, determineSeparator('src/Commands/SkeletonCommand.php'))                   => rename($file, determineSeparator('./src/Commands/'.$className.'Command.php')),
         str_contains($file, determineSeparator('database/migrations/create_skeleton_table.php.stub')) => rename($file, determineSeparator('./database/migrations/create_'.title_snake($packageSlugWithoutPrefix).'_table.php.stub')),
-        str_contains($file, determineSeparator('config/skeleton.php')) => rename($file, determineSeparator('./config/'.$packageSlugWithoutPrefix.'.php')),
-        str_contains($file, 'README.md') => remove_readme_paragraphs($file),
-        default => [],
+        str_contains($file, determineSeparator('config/skeleton.php'))                                => rename($file, determineSeparator('./config/'.$packageSlugWithoutPrefix.'.php')),
+        str_contains($file, 'README.md')                                                              => remove_readme_paragraphs($file),
+        default                                                                                       => [],
     };
 }
 

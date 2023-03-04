@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PreemStudio\Skeleton;
 
-class Skeleton
+final class Skeleton
 {
     //
 }
