@@ -42,7 +42,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "PreemStudio\\Skeleton\\Tests\\": "tests"
+            "Tests\\": "tests"
         }
     },
     "scripts": {
