@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
+use PreemStudio\Jetpack\Tests\AbstractTestCase;
 use PreemStudio\Skeleton\SkeletonServiceProvider;
 
-final class TestCase extends Orchestra
+final class TestCase extends AbstractTestCase
 {
     protected function setUp(): void
     {

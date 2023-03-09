@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PreemStudio\Skeleton;
 
+use PreemStudio\Jetpack\Package\AbstractServiceProvider;
+use PreemStudio\Jetpack\Package\Package;
 use PreemStudio\Skeleton\Commands\SkeletonCommand;
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-final class SkeletonServiceProvider extends PackageServiceProvider
+final class SkeletonServiceProvider extends AbstractServiceProvider
 {
     public function configurePackage(Package $package): void
     {

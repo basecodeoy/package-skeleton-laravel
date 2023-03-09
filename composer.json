@@ -17,12 +17,11 @@
     ],
     "require": {
         "php": "^8.1",
-        "spatie/laravel-package-tools": "^1.1",
-        "illuminate/contracts": "^10.0"
+        "illuminate/contracts": "^10.0",
+        "preemstudio/laravel-jetpack": "^1.0"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.2",
-        "graham-campbell/analyzer": "^3.1",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^6.0",
         "nunomaduro/larastan": "^2.0",
