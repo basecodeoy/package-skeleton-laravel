@@ -4,30 +4,12 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use PreemStudio\Jetpack\Tests\AbstractTestCase;
-use PreemStudio\Skeleton\ServiceProvider;
+use PreemStudio\Jetpack\TestBench\AbstractPackageTestCase;
 
-final class TestCase extends AbstractTestCase
+abstract class TestCase extends AbstractPackageTestCase
 {
-    protected function setUp(): void
+    protected function getServiceProviderClass(): string
     {
-        parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'PreemStudio\\Skeleton\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
-    }
-
-    protected function getPackageProviders($app): array
-    {
-        return [
-            ServiceProvider::class,
-        ];
-    }
-
-    public function getEnvironmentSetUp($app): void
-    {
-        config()->set('database.default', 'testing');
+        return \PreemStudio\Skeleton\ServiceProvider::class;
     }
 }

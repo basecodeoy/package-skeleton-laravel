@@ -1,12 +1,12 @@
 {
-    "name": "preemstudio/:package_slug",
-    "description": ":package_description",
+    "name": "preemstudio/package_slug",
+    "description": "package_description",
     "keywords": [
         "PreemStudio",
         "laravel",
-        ":package_slug"
+        "package_slug"
     ],
-    "homepage": "https://github.com/preemstudio/:package_slug",
+    "homepage": "https://github.com/preemstudio/package_slug",
     "license": "MIT",
     "authors": [
         {

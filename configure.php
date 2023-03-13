@@ -55,16 +55,6 @@ function remove_prefix(string $prefix, string $content): string
     return $content;
 }
 
-function remove_readme_paragraphs(string $file): void
-{
-    $contents = file_get_contents($file);
-
-    file_put_contents(
-        $file,
-        preg_replace('/<!--delete-->.*<!--\/delete-->/s', '', $contents) ?: $contents
-    );
-}
-
 function determineSeparator(string $path): string
 {
     return str_replace('/', DIRECTORY_SEPARATOR, $path);
@@ -85,23 +75,20 @@ $files = explode(PHP_EOL, run('grep -E -r -l -i ":author|:vendor|:package|Vendor
 
 foreach ($files as $file) {
     replace_in_file($file, [
-        ':package_description'         => $description,
-        ':package_name'                => $packageName,
-        ':package_slug_without_prefix' => $packageSlugWithoutPrefix,
-        ':package_slug'                => $packageSlug,
-        'migration_table_name'         => title_snake($packageSlug),
-        'Skeleton'                     => $className,
-        'skeleton'                     => $packageSlug,
+        'package_description'   => $description,
+        'package_name'          => $packageName,
+        'package_slug'          => $packageSlug,
+        'migration_table_name'  => title_snake($packageSlug),
+        'Skeleton'              => $className,
+        'skeleton'              => $packageSlug,
     ]);
 
     match (true) {
         str_contains($file, determineSeparator('src/Skeleton.php'))                                   => rename($file, determineSeparator('./src/'.$className.'.php')),
-        str_contains($file, determineSeparator('src/SkeletonServiceProvider.php'))                    => rename($file, determineSeparator('./src/'.$className.'ServiceProvider.php')),
         str_contains($file, determineSeparator('src/Facades/Skeleton.php'))                           => rename($file, determineSeparator('./src/Facades/'.$className.'.php')),
         str_contains($file, determineSeparator('src/Commands/SkeletonCommand.php'))                   => rename($file, determineSeparator('./src/Commands/'.$className.'Command.php')),
         str_contains($file, determineSeparator('database/migrations/create_skeleton_table.php.stub')) => rename($file, determineSeparator('./database/migrations/create_'.title_snake($packageSlugWithoutPrefix).'_table.php.stub')),
         str_contains($file, determineSeparator('config/skeleton.php'))                                => rename($file, determineSeparator('./config/'.$packageSlugWithoutPrefix.'.php')),
-        str_contains($file, 'README.md')                                                              => remove_readme_paragraphs($file),
         default                                                                                       => [],
     };
 }

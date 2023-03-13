@@ -4,15 +4,10 @@ declare(strict_types=1);
 
 namespace PreemStudio\Skeleton\Facades;
 
-use Illuminate\Support\Facades\Facade;
-
-/**
- * @see \PreemStudio\Skeleton\Skeleton
- */
-final class Skeleton extends Facade
+final class Skeleton
 {
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
-        return \PreemStudio\Skeleton\Skeleton::class;
+        return 'skeleton';
     }
 }
