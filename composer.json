@@ -22,6 +22,7 @@
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.2",
+        "infection/infection": "^0.26.19",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^6.0",
         "nunomaduro/larastan": "^2.0",
@@ -55,7 +56,8 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "phpstan/extension-installer": true,
-            "ergebnis/composer-normalize": true
+            "ergebnis/composer-normalize": true,
+            "infection/extension-installer": true
         },
         "sort-packages": true
     },
