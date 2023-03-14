@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace Tests\Unit;
 
 it('should be true', function () {
     expect(true)->toBeTrue();
