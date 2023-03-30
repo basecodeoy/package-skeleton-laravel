@@ -71,7 +71,7 @@ $className   = title_case($packageName);
 $className   = ask('Class name', $className);
 $description = ask('Package description', "This is my package {$packageSlug}");
 
-$files = explode(PHP_EOL, run('grep -E -r -l -i ":author|:vendor|:package|VendorName|skeleton|migration_table_name|vendor_name|vendor_slug|author@domain.com" --exclude-dir=vendor ./* ./.github/* | grep -v '.basename(__FILE__)));
+$files = explode(PHP_EOL, run('grep -E -r -l -i ":author|:vendor|:package|VendorName|skeleton|migration_table_name|vendor_name|vendor_slug|author@domain.com|package_description|package_name|package_slug" --exclude-dir=vendor ./* ./.github/* | grep -v '.basename(__FILE__)));
 
 foreach ($files as $file) {
     replace_in_file($file, [
