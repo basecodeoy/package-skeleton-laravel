@@ -13,7 +13,7 @@ final class ModelFactory extends Factory
     public function definition()
     {
         return [
-
+            //
         ];
     }
 }
