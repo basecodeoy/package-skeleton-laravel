@@ -1,47 +1,55 @@
-# package_name
+<p align="center">
+    <a href="https://preem.studio" target="_blank">
+        <img src="https://raw.githubusercontent.com/PreemStudio/assets/main/logo-text.svg" width="400" alt="Preem Studio Logo" />
+    </a>
+</p>
 
-[![Latest Version](https://badge.sh/packagist/version/PreemStudio/package_slug)](https://packagist.org/packages/preemstudio/package_slug)
-[![Coding Standards](https://badge.sh/github/check-runs/PreemStudio/package_slug/main/coding-standards)](https://github.com/PreemStudio/package_slug/actions)
-[![Security Analysis](https://badge.sh/github/check-runs/PreemStudio/package_slug/main/security-analysis)](https://github.com/PreemStudio/package_slug/actions)
-[![Static Code Analysis](https://badge.sh/github/check-runs/PreemStudio/package_slug/main/static-code-analysis)](https://github.com/PreemStudio/package_slug/actions)
-[![Tests](https://badge.sh/github/check-runs/PreemStudio/package_slug/main/tests)](https://github.com/PreemStudio/package_slug/actions)
+<p align="center">
+    <a href="https://github.com/PreemStudio/package_slug/actions">
+        <img src="https://badge.sh/github/check-runs/PreemStudio/package_slug" alt="Checks" />
+    </a>
+    <a href="https://packagist.org/packages/preemstudio/package_slug">
+        <img src="https://badge.sh/packagist/downloads/PreemStudio/package_slug" alt="Downloads" />
+    </a>
+    <a href="https://packagist.org/packages/preemstudio/package_slug">
+        <img src="https://badge.sh/packagist/version/PreemStudio/package_slug" alt="Version" />
+    </a>
+    <a href="https://packagist.org/packages/preemstudio/package_slug">
+        <img src="https://badge.sh/packagist/license/PreemStudio/package_slug" alt="License" />
+    </a>
+</p>
 
-package_name was created by, and is maintained by [Preem Studio](https://github.com/PreemStudio), and is a package_description. Be sure to browse through the
-[changelog](CHANGELOG.md), [code of conduct](.github/CODE_OF_CONDUCT.md), [contribution guidelines](.github/CONTRIBUTING.md), [license](LICENSE), and [security policy](.github/SECURITY.md),
+## About package_name
+
+This project was created by, and is maintained by [Preem Studio](https://github.com/PreemStudio), and is a package to package_description. Be sure to browse through the [changelog](CHANGELOG.md), [code of conduct](.github/CODE_OF_CONDUCT.md), [contribution guidelines](.github/CONTRIBUTING.md), [license](LICENSE), and [security policy](.github/SECURITY.md).
 
 ## Installation
 
-You can install the package via composer:
+> **Note**
+> This package requires [PHP](https://www.php.net/) 8.2 or later, and it supports [Laravel](https://laravel.com/) 10 or later.
+
+To get the latest version, simply require the project using [Composer](https://getcomposer.org/):
 
 ```bash
-composer require preemstudio/package_slug
+$ composer require preemstudio/package_slug
 ```
 
-You can publish and run the migrations with:
+You can publish the migrations by using:
 
 ```bash
-php artisan vendor:publish --tag="package_slug-migrations"
-php artisan migrate
+$ php artisan vendor:publish --tag="package_slug-migrations"
 ```
 
-You can publish the config file with:
+You can publish the configuration file by using:
 
 ```bash
-php artisan vendor:publish --tag="package_slug-config"
+$ php artisan vendor:publish --tag="package_slug-config"
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-    //
-];
-```
-
-Optionally, you can publish the views using
+You can publish the views by using:
 
 ```bash
-php artisan vendor:publish --tag="package_slug-views"
+$ php artisan vendor:publish --tag="package_slug-views"
 ```
 
 ## Usage
