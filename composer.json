@@ -3,7 +3,7 @@
     "description": "package_description",
     "license": "MIT",
     "keywords": [
-        "PreemStudio",
+        "Preem Studio",
         "laravel",
         "package_slug"
     ],
@@ -16,7 +16,7 @@
     ],
     "homepage": "https://github.com/PreemStudio/package_slug",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "illuminate/contracts": "^10.0",
         "preemstudio/laravel-jetpack": "^1.0"
     },
